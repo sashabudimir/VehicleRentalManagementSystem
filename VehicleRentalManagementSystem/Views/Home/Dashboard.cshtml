@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Dashboard</h1>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm p-3">
+                <h4>Total Vehicles</h4>
+                <p class="fs-4">@ViewBag.VehicleCount</p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm p-3">
+                <h4>Available Vehicles</h4>
+                <p class="fs-4">@ViewBag.AvailableVehicles</p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm p-3">
+                <h4>Total Customers</h4>
+                <p class="fs-4">@ViewBag.CustomerCount</p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm p-3">
+                <h4>Total Reservations</h4>
+                <p class="fs-4">@ViewBag.ReservationCount</p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm p-3">
+                <h4>Total Billings</h4>
+                <p class="fs-4">@ViewBag.BillingCount</p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm p-3">
+                <h4>Total Revenue</h4>
+                <p class="fs-4">$@ViewBag.TotalRevenue</p>
+            </div>
+        </div>
+    </div>
+</div>

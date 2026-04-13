@@ -1,0 +1,31 @@
+﻿@model VehicleRentalManagementSystem.Models.Billing
+
+@{
+    ViewData["Title"] = "Billing Details";
+}
+
+<h1>Billing Details</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Reservation ID</dt>
+        <dd class="col-sm-9">@Model.ReservationId</dd>
+
+        <dt class="col-sm-3">Base Amount</dt>
+        <dd class="col-sm-9">$@Model.BaseAmount</dd>
+
+        <dt class="col-sm-3">Tax</dt>
+        <dd class="col-sm-9">$@Model.Tax</dd>
+
+        <dt class="col-sm-3">Additional Charges</dt>
+        <dd class="col-sm-9">$@Model.AdditionalCharges</dd>
+
+        <dt class="col-sm-3">Total Amount</dt>
+        <dd class="col-sm-9">$@Model.TotalAmount</dd>
+
+        <dt class="col-sm-3">Billing Date</dt>
+        <dd class="col-sm-9">@Model.BillingDate.ToShortDateString()</dd>
+    </dl>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>

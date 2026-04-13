@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Reports";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Reports</h1>
+
+    <div class="card shadow-sm p-4">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Total Vehicles:</strong> @ViewBag.TotalVehicles</li>
+            <li class="list-group-item"><strong>Available Vehicles:</strong> @ViewBag.AvailableVehicles</li>
+            <li class="list-group-item"><strong>Unavailable Vehicles:</strong> @ViewBag.UnavailableVehicles</li>
+            <li class="list-group-item"><strong>Total Customers:</strong> @ViewBag.TotalCustomers</li>
+            <li class="list-group-item"><strong>Total Reservations:</strong> @ViewBag.TotalReservations</li>
+            <li class="list-group-item"><strong>Total Billings:</strong> @ViewBag.TotalBillings</li>
+            <li class="list-group-item"><strong>Total Revenue:</strong> $@ViewBag.TotalRevenue</li>
+        </ul>
+    </div>
+</div>

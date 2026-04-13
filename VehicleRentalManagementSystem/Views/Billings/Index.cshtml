@@ -1,0 +1,41 @@
+﻿@model IEnumerable<VehicleRentalManagementSystem.Models.Billing>
+
+@{
+    ViewData["Title"] = "Billing";
+}
+
+<h1>Billing</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Billing</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Reservation</th>
+            <th>Customer</th>
+            <th>Vehicle</th>
+            <th>Base Amount</th>
+            <th>Tax</th>
+            <th>Additional Charges</th>
+            <th>Total Amount</th>
+            <th>Billing Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ReservationId</td>
+                <td>@item.Reservation?.Customer?.FullName</td>
+                <td>@item.Reservation?.Vehicle?.Make @item.Reservation?.Vehicle?.Model</td>
+                <td>$@item.BaseAmount</td>
+                <td>$@item.Tax</td>
+                <td>$@item.AdditionalCharges</td>
+                <td>$@item.TotalAmount</td>
+                <td>@item.BillingDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

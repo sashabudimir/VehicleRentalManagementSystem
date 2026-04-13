@@ -1,0 +1,32 @@
+﻿@model VehicleRentalManagementSystem.Models.Billing
+
+@{
+    ViewData["Title"] = "Create Billing";
+}
+
+<h1>Create Billing</h1>
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="ReservationId" class="form-label"></label>
+        <select asp-for="ReservationId" asp-items="ViewBag.ReservationId" class="form-control"></select>
+        <span asp-validation-for="ReservationId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="AdditionalCharges" class="form-label"></label>
+        <input asp-for="AdditionalCharges" class="form-control" />
+        <span asp-validation-for="AdditionalCharges" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

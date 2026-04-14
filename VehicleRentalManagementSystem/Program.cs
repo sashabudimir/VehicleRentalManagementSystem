@@ -10,11 +10,8 @@ namespace VehicleRentalManagementSystem
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-                ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(connectionString));
+                options.UseSqlite("Data Source=app.db"));
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -45,6 +42,20 @@ namespace VehicleRentalManagementSystem
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                try
+                {
+                    var db = services.GetRequiredService<ApplicationDbContext>();
+                    db.Database.EnsureCreated();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
 
             app.MapControllerRoute(
                 name: "default",

@@ -20,13 +20,20 @@ namespace VehicleRentalManagementSystem.Controllers
         // ===================== INDEX =====================
         public async Task<IActionResult> Index()
         {
-            var billings = _context.Billings
-                .Include(b => b.Reservation)
-                    .ThenInclude(r => r!.Customer)
-                .Include(b => b.Reservation)
-                    .ThenInclude(r => r!.Vehicle);
+            try
+            {
+                var billings = _context.Billings
+                    .Include(b => b.Reservation)
+                        .ThenInclude(r => r!.Customer)
+                    .Include(b => b.Reservation)
+                        .ThenInclude(r => r!.Vehicle);
 
-            return View(await billings.ToListAsync());
+                return View(await billings.ToListAsync());
+            }
+            catch
+            {
+                return View(new List<VehicleRentalManagementSystem.Models.Billing>());
+            }
         }
 
         // ===================== DETAILS =====================
